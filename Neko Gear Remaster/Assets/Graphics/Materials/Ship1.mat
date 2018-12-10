@@ -8,10 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ship1
-  m_Shader: {fileID: 4800000, guid: 4fade960afda2804d8ce1a46e4742521, type: 3}
+  m_Shader: {fileID: 4800000, guid: 70b86ad7333ca984e8281ca7c195f908, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 6
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -43,6 +43,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 247033ad828f65146998c06d324c3fc4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_52ABF17_Texture:
+        m_Texture: {fileID: 2800000, guid: 8afb0bdc1cebe1f40a12606f8c6cbc4d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_6E0C2AEA_Texture:
+        m_Texture: {fileID: 2800000, guid: 247033ad828f65146998c06d324c3fc4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_A3B0598E_Texture:
+        m_Texture: {fileID: 2800000, guid: 1cbc9898b60cc234db351ef1bd5975e1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2DLOD_B98C83E3_Texture:
         m_Texture: {fileID: 2800000, guid: 1cbc9898b60cc234db351ef1bd5975e1, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -59,6 +71,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 1141520dc71ebdf4fa493d89e30eae6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_32B2C024_Out:
+        m_Texture: {fileID: 2800000, guid: 1141520dc71ebdf4fa493d89e30eae6b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_AC4AA187: 0.25
     - Vector1_ED650A16: 5
@@ -72,6 +88,8 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
+    - _Normal_Offset: 0.25
+    - _Normal_Strenght: 1
     - _OcclusionStrength: 1
     - _ReceiveShadows: 1
     - _SmoothnessTextureChannel: 0
@@ -85,6 +103,10 @@ Material:
     - Color_66F80E2D: {r: 1, g: 0.9874557, b: 0, a: 0}
     - Color_E336DA6E: {r: 1, g: 0, b: 0, a: 0}
     - Color_E3635C7B: {r: 1, g: 0.55135614, b: 0, a: 0}
+    - Color_F4372075: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Emissive_1: {r: 1, g: 0, b: 0, a: 0}
+    - _Emissive_2: {r: 1, g: 0.92855203, b: 0, a: 0}
+    - _Emissive_3: {r: 1, g: 0.57067186, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
