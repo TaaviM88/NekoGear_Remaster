@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: 82419843b8466b34d94f6f126aa600b5
+guid: 38138067aef27e141923c01cc55b0985
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
-    2100002: Material.001
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ship_3
+    4300000: Icosphere
   externalObjects: {}
   materials:
     importMaterials: 1
