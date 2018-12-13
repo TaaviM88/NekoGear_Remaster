@@ -33,4 +33,14 @@ public class MovementPlayer : MonoBehaviour
 
         _rb.rotation = Quaternion.Euler(_rb.velocity.x * -tilt,transform.position.z, _rb.velocity.y * -tilt);
     }
+
+    void Update()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        pos.x = Mathf.Clamp(pos.x, 0.07f, 0.93f);
+        pos.y = Mathf.Clamp01(pos.y);
+        //pos.y = Mathf.Clamp(0.07f, pos.y, 0.093f);
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+    }
+
 }
