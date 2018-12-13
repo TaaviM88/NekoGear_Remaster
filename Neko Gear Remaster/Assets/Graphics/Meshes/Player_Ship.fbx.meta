@@ -4,11 +4,22 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: Lamp
+    100006: Player_ship
     400000: //RootNode
+    400002: Camera
+    400004: Lamp
+    400006: Player_ship
+    2000000: Camera
     2100000: No Name
+    2100002: Player_ship
     2300000: //RootNode
+    2300002: Player_ship
     3300000: //RootNode
+    3300002: Player_ship
     4300000: Player_ship
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1
