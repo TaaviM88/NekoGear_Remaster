@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 849413577061180021}
   - component: {fileID: 5156815027015701922}
   - component: {fileID: 3993666079543977265}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyShip_Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,9 +92,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e7b1f3406c85943948c1fe28f10955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  health: 1
+  speed: 10
+  health: 4
   disableTimer: 7
+  bulletRotationX: 270
+  bulletRotationY: 270
+  bulletRotationZ: 180
 --- !u!65 &5156815027015701922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,5 +125,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0

@@ -21,8 +21,6 @@ public class FollowWaypoints : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            Debug.Log(waypoints[waypointsNumber].transform.position);
-
             float step = forwardSpeed * Time.deltaTime;
 
             transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointsNumber].transform.position, step);

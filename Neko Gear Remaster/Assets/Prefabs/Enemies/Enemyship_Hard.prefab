@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2237357587633205972}
   - component: {fileID: 1465056675763571653}
   - component: {fileID: 3801900670445073562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemyship_Hard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &1465056675763571653
 BoxCollider:
@@ -122,5 +122,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 9
-  health: 4
-  disableTimer: 4
+  health: 5
+  disableTimer: 8

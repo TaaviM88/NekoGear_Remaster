@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5560078459441226337}
   - component: {fileID: 2605625850532184501}
   - component: {fileID: 1838999803}
-  m_Layer: 0
+  - component: {fileID: 2015341505835673394}
+  m_Layer: 9
   m_Name: EnemyShip_Easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +94,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!114 &1838999803
 MonoBehaviour:
@@ -108,5 +109,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  health: 1
-  disableTimer: 5
+  health: 2
+  disableTimer: 7
+--- !u!65 &2015341505835673394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560078459443166369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.039522808, y: 0.039431345, z: 0.009959377}
+  m_Center: {x: 0, y: -0.000030759726, z: 0.0014435137}

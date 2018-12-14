@@ -8,8 +8,13 @@ public class Bullet : MonoBehaviour
     public float damage = 1;
     public float disableTimer = 5f;
     public float Firerate = 0.5f;
+    public float bulletRotationX = 0;
+    public float bulletRotationY = 0;
+    public float bulletRotationZ = 90;
+    public GameObject explosionParticle;
     private Vector3 bulletMovement;
     private Vector3 bulletRotation;
+    
     Vector3 _direction;
     Rigidbody _rb;
     
@@ -28,6 +33,7 @@ public class Bullet : MonoBehaviour
 
     private void OnEnable()
     {
+        transform.rotation = Quaternion.Euler(bulletRotationX, bulletRotationY, bulletRotationZ);
         Invoke("Disable", disableTimer);
     }
 
@@ -46,5 +52,16 @@ public class Bullet : MonoBehaviour
 
     private void UpdateDirection()
     {
+
+    }
+
+    public float GiveDamage()
+    {
+        return damage;
+    }
+
+    public void CreateExplosion()
+    {
+        Instantiate(explosionParticle, transform.position, Quaternion.identity);
     }
 }
