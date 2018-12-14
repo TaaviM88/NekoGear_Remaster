@@ -76,6 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_F220FB8: 1
     - Vector1_AC4AA187: 0.25
     - Vector1_ED650A16: 5
     - _AlphaClip: 0
@@ -84,6 +85,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
+    - _Fresnel_Power: 10
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -99,6 +101,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_3A8EC0A9: {r: 0.8721437, g: 0, b: 1, a: 0}
     - Color_4D0F01BA: {r: 1, g: 1, b: 1, a: 0}
     - Color_66F80E2D: {r: 1, g: 0.9874557, b: 0, a: 0}
     - Color_E336DA6E: {r: 1, g: 0, b: 0, a: 0}
