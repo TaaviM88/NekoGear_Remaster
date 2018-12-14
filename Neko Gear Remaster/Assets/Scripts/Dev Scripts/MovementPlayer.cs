@@ -31,7 +31,7 @@ public class MovementPlayer : MonoBehaviour
 
         transform.position += new Vector3(horizontalMove, verticalMove, 0);
 
-        _rb.rotation = Quaternion.Euler(_rb.velocity.x * -tilt,transform.position.z, _rb.velocity.y * -tilt);
+        _rb.rotation = Quaternion.Euler(_rb.velocity.x * -tilt,90, _rb.velocity.y * -tilt);
     }
 
     void Update()

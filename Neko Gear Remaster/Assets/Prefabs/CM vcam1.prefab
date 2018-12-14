@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8948877911739550189}
   - component: {fileID: 8948877911739550188}
-  - component: {fileID: 8948877911739550178}
+  - component: {fileID: 362658446}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -59,7 +59,7 @@ MonoBehaviour:
     FarClipPlane: 5000
     Dutch: 0
   m_ComponentOwner: {fileID: 8948877912419878386}
---- !u!114 &8948877911739550178
+--- !u!114 &362658446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,10 +68,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8948877911739550191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 372e3529a614d2d4a9a995a101b7a320, type: 3}
+  m_Script: {fileID: 11500000, guid: ab1695629674f4343b87daa080cf5df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  loop: 0
+  stop: 1
+  forwardSpeed: 10
 --- !u!1 &8948877912419878397
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +140,7 @@ MonoBehaviour:
   m_ZDamping: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 15
+  m_CameraDistance: 43
   m_DeadZoneWidth: 1
   m_DeadZoneHeight: 1
   m_DeadZoneDepth: 0
