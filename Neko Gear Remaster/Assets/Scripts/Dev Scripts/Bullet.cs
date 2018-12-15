@@ -12,9 +12,10 @@ public class Bullet : MonoBehaviour
     public float bulletRotationY = 0;
     public float bulletRotationZ = 90;
     public GameObject explosionParticle;
+    
     private Vector3 bulletMovement;
     private Vector3 bulletRotation;
-    
+
     Vector3 _direction;
     Rigidbody _rb;
     
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         transform.rotation = Quaternion.Euler(bulletRotationX, bulletRotationY, bulletRotationZ);
+
         Invoke("Disable", disableTimer);
     }
 
@@ -42,6 +45,7 @@ public class Bullet : MonoBehaviour
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.Euler(0, 0, 0);
         _rb.velocity = Vector3.zero;
+
         gameObject.SetActive(false);
     }
 

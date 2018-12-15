@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2015341505835673394}
   m_Layer: 9
   m_Name: EnemyShip_Easy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5560078459443166369}
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 23.549559, y: 7.1421576, z: 45.99774}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -111,6 +111,13 @@ MonoBehaviour:
   speed: 6
   health: 2
   disableTimer: 7
+  isBoss: 0
+  enemyRotationX: 270
+  enemyRotationY: 0
+  enemyRotationZ: 270
+  damage: 1
+  explosionParticle: {fileID: 179799243770029882, guid: 133bde36bf54bf84d8897010b4b9d6d3,
+    type: 3}
 --- !u!65 &2015341505835673394
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9,21 +9,26 @@ public class AIScript : MonoBehaviour
     public float speed = 3f;
     public float health = 1;
     public float disableTimer = 5f;
-    public float bulletRotationX = 270;
-    public float bulletRotationY = 0;
-    public float bulletRotationZ = 270;
+    public bool isBoss;
+    public float enemyRotationX = 270;
+    public float enemyRotationY = 0;
+    public float enemyRotationZ = 270;
+    public int damage = 1;
+    public GameObject explosionParticle;
     private Vector3 EnemyMovement;
     Rigidbody _rb;
+
     // Used to find the parent spawner object
     void Start()
     {
         objSpawn = (GameObject)GameObject.FindWithTag("Spawner");
         _rb = GetComponent<Rigidbody>();
-        transform.Rotate(new Vector3(bulletRotationX, bulletRotationY, bulletRotationZ));
+        transform.Rotate(new Vector3(enemyRotationX, enemyRotationY, enemyRotationZ));
     }
 
     private void OnEnable()
     {
+        if(!isBoss)
         Invoke("removeMe", disableTimer);
     }
 
@@ -35,9 +40,10 @@ public class AIScript : MonoBehaviour
     }
 
     // Call this when you want to kill the enemy
-    void removeMe()
+    public void removeMe()
     {
         objSpawn.BroadcastMessage("killEnemy", SpawnerID);
+        CreateExplosion();
         Destroy(gameObject);
     }
     // this gets called in the beginning when it is created by the spawner script
@@ -67,8 +73,23 @@ public class AIScript : MonoBehaviour
         health -= dmg;
         if (health <= 0)
         {
+
             removeMe();
         }
-        
+    }
+
+    public int MakeDamage()
+    {
+        return damage;
+    }
+
+    public bool IsThisABoss()
+    {
+        return isBoss;
+    }
+
+    public void CreateExplosion()
+    {
+        Instantiate(explosionParticle, transform.position, Quaternion.identity);
     }
 }

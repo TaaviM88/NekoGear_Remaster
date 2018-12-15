@@ -7,8 +7,14 @@ public class MovementPlayer : MonoBehaviour
     public float speed = 1f;
     float horizontalMove = 0f;
     float verticalMove = 0f;
+
+    public float playerRotationX = 0;
+    public float playerRotationY = 0;
+    public float playerRotaionZ = 0;
+
     public float tilt;
     Rigidbody _rb;
+    public bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,21 +23,27 @@ public class MovementPlayer : MonoBehaviour
         {
             Debug.Log("Ei löydy rigidbodia. Lisää tälle se asap. " + this.name);
         }
+
+        transform.Rotate(new Vector3(playerRotationX, playerRotationY, playerRotaionZ));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        horizontalMove = Input.GetAxis("Horizontal");
-        verticalMove = Input.GetAxis("Vertical");
+        if(canMove)
+        {
+            horizontalMove = Input.GetAxis("Horizontal");
+            verticalMove = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(verticalMove, horizontalMove, 0);
+            Vector3 movement = new Vector3(verticalMove, horizontalMove, 0);
 
-        _rb.velocity = movement * speed;
+            _rb.velocity = movement * speed;
 
-        transform.position += new Vector3(horizontalMove, verticalMove, 0);
+            transform.position += new Vector3(horizontalMove, verticalMove, 0);
 
-        _rb.rotation = Quaternion.Euler(_rb.velocity.x * -tilt,90, _rb.velocity.y * -tilt);
+            _rb.rotation = Quaternion.Euler(_rb.velocity.x * tilt, playerRotationY, _rb.velocity.y * -tilt);
+        }
+
     }
 
     void Update()
@@ -43,4 +55,8 @@ public class MovementPlayer : MonoBehaviour
         transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 
+    public void DisableControls(bool move)
+    {
+        canMove = move;
+    }
 }
