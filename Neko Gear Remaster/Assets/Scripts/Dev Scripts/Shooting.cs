@@ -11,6 +11,9 @@ public class Shooting : MonoBehaviour
     public float firerate = 0.07f;
     public float nextfire = 0.0f;
 
+    [Header("If boss")]
+    public bool isBoss = false;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,11 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonUp("Fire1"))
+        /*if (Input.GetButtonUp("Fire1"))
+        {
+            Fire();
+        }*/
+        if (Input.GetButton("Fire1") && !isBoss)
         {
             Fire();
         }
@@ -28,16 +35,41 @@ public class Shooting : MonoBehaviour
 
     public void Fire()
     {
-        GameObject bullet = PoolManager.current.GetBullet();
-        if (bullet == null) return;
-        if(Time.time > nextfire)
+        if (!isBoss)
         {
-            nextfire = Time.time + firerate;
+            GameObject bullet = PoolManager.current.GetPlayerBullet();
+            if (bullet == null) return;
+            if (Time.time > nextfire)
+            {
+                nextfire = Time.time + firerate;
 
-            bullet.transform.position = bulletStartingPoint.position;
-            bullet.transform.rotation = transform.rotation;
+                bullet.transform.position = bulletStartingPoint.position;
+                bullet.transform.rotation = transform.rotation;
 
-            bullet.SetActive(true);
+                bullet.SetActive(true);
+            }
         }
+        else
+        {
+            Debug.Log("Haetaan luotia niin perkeleesti");
+            GameObject ebullet = PoolManager.current.GetEnemyBullet();
+            if (ebullet == null)
+            {
+                Debug.Log("Ei täällä mitään luoteja ole!");
+                return;
+            }
+            if (Time.time > nextfire)
+            {
+                nextfire = Time.time + firerate;
+
+                ebullet.transform.position = bulletStartingPoint.position;
+                ebullet.transform.rotation = transform.rotation;
+
+                ebullet.SetActive(true);
+            }
+        }
+     
     }
+
+
 }

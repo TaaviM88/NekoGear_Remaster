@@ -54,6 +54,8 @@ public class Spawner : MonoBehaviour
     // End of Enemy Settings
     //----------------------------------
 
+    public float speed = 5f;
+
 
     // The ID of the spawner
     private int SpawnID;
@@ -61,19 +63,31 @@ public class Spawner : MonoBehaviour
     //----------------------------------
     // Different Spawn states and ways of doing them
     //----------------------------------
+    [Header("Different Spawn states")]
     private bool waveSpawn = false;
     public bool Spawn = true;
     public SpawnTypes spawnType = SpawnTypes.Normal;
     public bool isEnabled = true;
+    [Header("Timed wave controls")]
     // timed wave controls
     public float waveTimer = 30.0f;
     private float timeTillWave = 0.0f;
+    [Header("Wave controls")]
     //Wave controls
     public int totalWaves = 5;
+    public bool useSinMovement;
     private int numWaves = 0;
+    [Header("Delay between enemies")]
+    bool isCounterOn;
+    public float counterTime = 1;
+    float currentCounter;
+
     //----------------------------------
     // End of Different Spawn states and ways of doing them
     //----------------------------------
+
+    private Vector3 _startPosition;
+
     void Start()
     {
         // sets a random number for the id of the spawner
@@ -87,6 +101,8 @@ public class Spawner : MonoBehaviour
         {
             disableSpawner(SpawnID);
         }
+
+        _startPosition = transform.position;
     }
     // Draws a cube to show where the spawn point is... Useful if you don't have a object that show the spawn point
     void OnDrawGizmos()
@@ -186,15 +202,49 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
+
+
+        if (isCounterOn)
+        {
+            if (currentCounter > 0)
+            {
+                currentCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isCounterOn = false;
+            }
+        }
+
+        if(useSinMovement)
+        {
+            Vector3 _newPosition = transform.position;
+            _newPosition.y += Mathf.Cos(Time.time) * Time.deltaTime * speed;
+            transform.position = _newPosition;
+        }
+        
     }
     // spawns an enemy based on the enemy level that you selected
     private void spawnEnemy()
     {
-        GameObject Enemy = (GameObject)Instantiate(Enemies[enemyLevel], gameObject.transform.position, Quaternion.identity);
-        Enemy.SendMessage("setName", SpawnID);
-        // Increase the total number of enemies spawned and the number of spawned enemies
-        numEnemy++;
-        spawnedEnemy++;
+        if(!isCounterOn)
+        {
+            GameObject Enemy = (GameObject)Instantiate(Enemies[enemyLevel], gameObject.transform.position, Quaternion.identity);
+            if(enemyLevel != EnemyLevels.Boss)
+            {
+                Enemy.SendMessage("setName", SpawnID);
+                // Increase the total number of enemies spawned and the number of spawned enemies
+                numEnemy++;
+                spawnedEnemy++;
+                StartTimer();
+            }
+            else
+            {
+                disableSpawner(SpawnID);
+            }
+            
+        }
+       
     }
     // Call this function from the enemy when it "dies" to remove an enemy count
     public void killEnemy(int sID)
@@ -234,6 +284,28 @@ public class Spawner : MonoBehaviour
     public void enableTrigger()
     {
         Spawn = true;
+    }
+
+
+    public void StartTimer()
+    {
+        currentCounter = counterTime;
+        isCounterOn = true;
+    }
+
+    public void ChangeEnemyLevel()
+    {
+        if(enemyLevel != EnemyLevels.Boss)
+        {
+            enemyLevel++;
+        }
+        else
+        {
+            //GameObject Enemy = (GameObject)Instantiate(Enemies[enemyLevel], gameObject.transform.position, Quaternion.identity);
+            spawnType = SpawnTypes.Once;
+            totalEnemy = 1;
+            disableSpawner(SpawnID);
+        }
     }
 
 }

@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
      bool isCounterOn;
     public float counterTime = 3;
     float currentCounter;
-
+    public GameObject beatleveltext;
+    bool bossIsBeated = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
         }
         else
             Instance = this;
+
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -34,8 +37,25 @@ public class GameManager : MonoBehaviour
             else
             {
                 isCounterOn = false;
+                ChangeTimeScale(0);
             }
+        }
 
+        if(Input.GetButtonUp("Submit"))
+        {
+            //Pause Game
+            if(Time.timeScale == 1 && !bossIsBeated)
+            {
+                ChangeTimeScale(0);
+            }
+            else if (Time.timeScale == 0 && !bossIsBeated)
+            {
+                ChangeTimeScale(1);
+            }
+            else if(Time.timeScale == 0 && bossIsBeated)
+            {
+                ResetScene();
+            }
         }
     }
 
@@ -48,5 +68,17 @@ public class GameManager : MonoBehaviour
     {
         currentCounter = counterTime;
         isCounterOn = true;
+    }
+
+    public void ChangeTimeScale(int i)
+    {
+        Time.timeScale = i;
+    }
+
+    public void BeatLevel()
+    {
+        beatleveltext.SetActive(true);
+        StartTimer();
+        bossIsBeated = true;
     }
 }

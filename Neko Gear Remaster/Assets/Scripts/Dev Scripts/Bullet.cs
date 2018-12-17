@@ -5,12 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 3f;
-    public float damage = 1;
+    public int damage = 1;
     public float disableTimer = 5f;
     public float Firerate = 0.5f;
     public float bulletRotationX = 0;
     public float bulletRotationY = 0;
     public float bulletRotationZ = 90;
+
+    public bool isEnemy = false;
     public GameObject explosionParticle;
     
     private Vector3 bulletMovement;
@@ -26,10 +28,20 @@ public class Bullet : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if(isEnemy)
+        {
+            _rb.AddForce(Vector3.right * (Mathf.Sin (speed) * Time.deltaTime), ForceMode.Impulse);
+            transform.Rotate(Vector3.right* Time.deltaTime * speed * 50);
+        }
+        
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         //_rb.AddForce(_direction * (speed * Time.deltaTime), ForceMode.Impulse);
+        if(!isEnemy)
         _rb.AddForce(Vector3.right * (speed * Time.deltaTime), ForceMode.Impulse);
     }
 
@@ -59,7 +71,7 @@ public class Bullet : MonoBehaviour
 
     }
 
-    public float GiveDamage()
+    public int GiveDamage()
     {
         return damage;
     }
@@ -67,5 +79,13 @@ public class Bullet : MonoBehaviour
     public void CreateExplosion()
     {
         Instantiate(explosionParticle, transform.position, Quaternion.identity);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 13)
+        {
+            Disable();
+        }
     }
 }

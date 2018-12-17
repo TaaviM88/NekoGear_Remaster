@@ -65,7 +65,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            Debug.Log("Hit");
+
             if(collision.gameObject.tag == "Enemy")
             {
                 AIScript enemy = collision.gameObject.GetComponent<AIScript>();
@@ -74,6 +74,15 @@ public class PlayerManager : MonoBehaviour
                 {
                     enemy.removeMe();
                 }
+            }
+        }
+        if (collision.gameObject.layer == 12)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+                TakeDamage(bullet.GiveDamage());
+                bullet.Disable();
             }
         }
     }

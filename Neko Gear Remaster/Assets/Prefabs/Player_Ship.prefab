@@ -426,8 +426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletStartingPoint: {fileID: 405737470}
   coolDown: 3
-  firerate: 0.1
+  firerate: 0.4
   nextfire: 0
+  isBoss: 0
 --- !u!65 &554202204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -506,6 +507,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ffffa92b223cd324885e7d3157368e18, type: 2}
+  - {fileID: 2100000, guid: b7e9aae19c6783144885ed52be9f1fce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

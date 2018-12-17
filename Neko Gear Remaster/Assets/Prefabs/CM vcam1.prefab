@@ -45,7 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1142385948438758774, guid: eea690d728ded0544bd193f14e34be1e,
     type: 3}
-  maxAmountBullets: 12
+  enemyBulletPrefab: {fileID: 8235891344394315616, guid: 2d0e8fc5a377b464b835211a0d469b31,
+    type: 3}
+  maxAmountPlayerBullets: 12
+  maxAmountEnemyBullets: 58
 --- !u!1 &8948877911739550191
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,9 +126,11 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   loop: 0
   stop: 1
-  forwardSpeed: 1
+  forwardSpeed: 40
 --- !u!1 &8948877912419878397
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,16 +281,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2816818222261410974, guid: 366d4699035d6a549867e601b5427bb2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2816818222261410974, guid: 366d4699035d6a549867e601b5427bb2,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 366d4699035d6a549867e601b5427bb2, type: 3}
 --- !u!4 &2816818222874468201 stripped
@@ -309,17 +304,17 @@ PrefabInstance:
     - target: {fileID: 8321908995894636402, guid: a6b2723c3fbf43240adde2de5df57f8a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 68.5
+      value: 52.8
       objectReference: {fileID: 0}
     - target: {fileID: 8321908995894636402, guid: a6b2723c3fbf43240adde2de5df57f8a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.6
+      value: -1.99
       objectReference: {fileID: 0}
     - target: {fileID: 8321908995894636402, guid: a6b2723c3fbf43240adde2de5df57f8a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 44.7
+      value: 42.42
       objectReference: {fileID: 0}
     - target: {fileID: 8321908995894636402, guid: a6b2723c3fbf43240adde2de5df57f8a,
         type: 3}
@@ -360,6 +355,33 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321908994087656626, guid: a6b2723c3fbf43240adde2de5df57f8a,
+        type: 3}
+      propertyPath: HardEnemy
+      value: 
+      objectReference: {fileID: 3638779400054491116, guid: f999f57e637dfc045998590104c36659,
+        type: 3}
+    - target: {fileID: 8321908994087656626, guid: a6b2723c3fbf43240adde2de5df57f8a,
+        type: 3}
+      propertyPath: BossEnemy
+      value: 
+      objectReference: {fileID: 4051504644273112327, guid: 8912270a33fd6aa45b828e53d5dc47c9,
+        type: 3}
+    - target: {fileID: 8321908994087656626, guid: a6b2723c3fbf43240adde2de5df57f8a,
+        type: 3}
+      propertyPath: totalEnemy
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321908994087656626, guid: a6b2723c3fbf43240adde2de5df57f8a,
+        type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321908994087656626, guid: a6b2723c3fbf43240adde2de5df57f8a,
+        type: 3}
+      propertyPath: waveTimer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6b2723c3fbf43240adde2de5df57f8a, type: 3}

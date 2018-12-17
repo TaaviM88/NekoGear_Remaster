@@ -10,10 +10,16 @@ public class FollowWaypoints : MonoBehaviour
     public bool stop = false;
     public float forwardSpeed = 1f;
     private int direction = 1;
+    bool lastWaypoint = false;
+    Spawner _spawn;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _spawn = GetComponentInChildren<Spawner>();
+        if(_spawn == null)
+        {
+            Debug.Log("Didn't find a " + _spawn.name);
+        }
     }
 
     // Update is called once per frame
@@ -21,19 +27,27 @@ public class FollowWaypoints : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            float step = forwardSpeed * Time.deltaTime;
-
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointsNumber].transform.position, step);
-
-            if ((this.transform.position - waypoints[waypointsNumber].transform.position).sqrMagnitude < 0.05f)
+            if (!lastWaypoint)
             {
-                GetNextIndex();
+                float step = forwardSpeed * Time.deltaTime;
+
+                transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointsNumber].transform.position, step);
+
+                if ((this.transform.position - waypoints[waypointsNumber].transform.position).sqrMagnitude < 0.05f)
+                {
+                    GetNextIndex();
+                }
             }
         }
     }
 
     void GetNextIndex()
     {
+        if(_spawn.isActiveAndEnabled)
+        {
+            _spawn.ChangeEnemyLevel();
+        }
+        
         if (waypointsNumber == waypoints.Count - 1)
         {
             if(loop == true && stop == false)
@@ -48,6 +62,7 @@ public class FollowWaypoints : MonoBehaviour
             else if (loop == false && stop == true)
             {
                 direction = 0;
+                lastWaypoint = true;
             }
 
         }
@@ -58,6 +73,7 @@ public class FollowWaypoints : MonoBehaviour
         }
 
         int i = waypoints.Count;
+
         if (waypointsNumber < i)
         {
             waypointsNumber += direction;

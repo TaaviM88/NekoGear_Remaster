@@ -24,7 +24,8 @@ public class MovementPlayer : MonoBehaviour
             Debug.Log("Ei löydy rigidbodia. Lisää tälle se asap. " + this.name);
         }
 
-        transform.Rotate(new Vector3(playerRotationX, playerRotationY, playerRotaionZ));
+        //transform.Rotate(new Vector3(playerRotationX, playerRotationY, playerRotaionZ));
+        transform.eulerAngles = new Vector3(playerRotationX, playerRotationY, playerRotaionZ);
     }
 
     // Update is called once per frame
@@ -51,6 +52,7 @@ public class MovementPlayer : MonoBehaviour
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         pos.x = Mathf.Clamp(pos.x, 0.07f, 0.93f);
         pos.y = Mathf.Clamp01(pos.y);
+        pos.z = Mathf.Clamp(pos.z, 43f, 43.01f);
         //pos.y = Mathf.Clamp(0.07f, pos.y, 0.093f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
     }

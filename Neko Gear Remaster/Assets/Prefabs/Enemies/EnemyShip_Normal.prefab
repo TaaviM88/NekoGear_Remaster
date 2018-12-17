@@ -92,16 +92,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e7b1f3406c85943948c1fe28f10955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  health: 4
+  speed: 30
+  height: 8
+  health: 3
   disableTimer: 7
-  isBoss: 0
-  enemyRotationX: 270
-  enemyRotationY: 0
-  enemyRotationZ: 270
   damage: 1
+  isBoss: 0
+  sinMovement: 1
+  tanMovement: 0
+  enemyRotationX: 270
+  enemyRotationY: 270
+  enemyRotationZ: 180
   explosionParticle: {fileID: 179799243770029882, guid: 133bde36bf54bf84d8897010b4b9d6d3,
     type: 3}
+  score: 1
 --- !u!65 &5156815027015701922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -129,5 +133,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 120
   m_CollisionDetection: 0
