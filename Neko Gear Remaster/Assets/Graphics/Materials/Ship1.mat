@@ -85,7 +85,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
-    - _Fresnel_Power: 10
+    - _Fresnel_Power: 20
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -101,7 +101,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_3A8EC0A9: {r: 0.8721437, g: 0, b: 1, a: 0}
+    - Color_3A8EC0A9: {r: 1, g: 0.6187996, b: 0, a: 0}
     - Color_4D0F01BA: {r: 1, g: 1, b: 1, a: 0}
     - Color_66F80E2D: {r: 1, g: 0.9874557, b: 0, a: 0}
     - Color_E336DA6E: {r: 1, g: 0, b: 0, a: 0}
